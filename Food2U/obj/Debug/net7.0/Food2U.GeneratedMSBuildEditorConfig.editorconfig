@@ -9,37 +9,41 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Food2U
 build_property.RootNamespace = Food2U
-build_property.ProjectDir = d:\Visual Studio Code\SSD\SSD-Assignment-2\Food2U\
+build_property.ProjectDir = C:\Users\Admin\Desktop\SSD-Assignment-2-main\food2u\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = d:\Visual Studio Code\SSD\SSD-Assignment-2\Food2U
+build_property.MSBuildProjectDirectory = C:\Users\Admin\Desktop\SSD-Assignment-2-main\food2u
 build_property._RazorSourceGeneratorDebug = 
 
-[d:/Visual Studio Code/SSD/SSD-Assignment-2/Food2U/Pages/Error.cshtml]
+[C:/Users/Admin/Desktop/SSD-Assignment-2-main/food2u/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Visual Studio Code/SSD/SSD-Assignment-2/Food2U/Pages/Index.cshtml]
+[C:/Users/Admin/Desktop/SSD-Assignment-2-main/food2u/Pages/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Visual Studio Code/SSD/SSD-Assignment-2/Food2U/Pages/Privacy.cshtml]
+[C:/Users/Admin/Desktop/SSD-Assignment-2-main/food2u/Pages/LocalRestaurant.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9jYWxSZXN0YXVyYW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Admin/Desktop/SSD-Assignment-2-main/food2u/Pages/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Visual Studio Code/SSD/SSD-Assignment-2/Food2U/Pages/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/Admin/Desktop/SSD-Assignment-2-main/food2u/Pages/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Visual Studio Code/SSD/SSD-Assignment-2/Food2U/Pages/_ViewImports.cshtml]
+[C:/Users/Admin/Desktop/SSD-Assignment-2-main/food2u/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Visual Studio Code/SSD/SSD-Assignment-2/Food2U/Pages/_ViewStart.cshtml]
+[C:/Users/Admin/Desktop/SSD-Assignment-2-main/food2u/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[d:/Visual Studio Code/SSD/SSD-Assignment-2/Food2U/Pages/Shared/_Layout.cshtml]
+[C:/Users/Admin/Desktop/SSD-Assignment-2-main/food2u/Pages/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-49bdlifvxu

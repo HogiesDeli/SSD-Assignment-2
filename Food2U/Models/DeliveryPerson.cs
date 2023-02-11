@@ -4,6 +4,7 @@ namespace Food2U.Models
 {
     public class DeliveryPerson
     {
+        [Key]
         public int driverID { get; set; }
         public string? Name { get; set; }
         public string? Vehichle { get; set; }
