@@ -1,5 +1,5 @@
 @page
-@model PrivacyModel
+@model LocalRestaurantModel
 @{
     ViewData["Title"] = "Local Restaurant";
 }
@@ -8,3 +8,18 @@
 <br>
 
 <p>Hello, Welcome to Food2U</p>
+
+<form>
+    <p>Please choose from the following list of restaurants for food items</p>
+
+        <input type="radio" id="age1" name="age" value="McDonald's">
+        <label for="age1">McDonald's</label><br><br>
+        <input type="radio" id="age2" name="age" value="Chic-Fil-A">
+        <label for="age2">Chic-Fil-A</label><br><br>
+        <input type="radio" id="age3" name="age" value="Burger King">
+        <label for="age3">Burger King</label><br><br>
+        <input type="radio" id="age4" name="age" value="Subway">
+        <label for="age3">Subway</label><br><br>
+        <input type="submit" value="Submit"; asp-page="/ChooseItems">
+
+</form>

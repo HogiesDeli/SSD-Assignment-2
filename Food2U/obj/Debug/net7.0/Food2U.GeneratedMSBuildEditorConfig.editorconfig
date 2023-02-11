@@ -16,6 +16,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Users\Admin\Desktop\SSD-Assignment-2-main\food2u
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/Users/Admin/Desktop/SSD-Assignment-2-main/food2u/Pages/ChooseItems.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hvb3NlSXRlbXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Admin/Desktop/SSD-Assignment-2-main/food2u/Pages/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
