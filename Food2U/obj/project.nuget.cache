@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Tt2sQM9MozBzI3M2S+kdUlSQppcZo9ud5hd6WewGoaziq/XdXMJ60wkuzerlbDWVTlC9QNISCn7cq/K49bnDRw==",
+  "dgSpecHash": "p/kubDJ0MIsuC/CcUqkyHEsR77j52Jh4pJw7ACOVupHudwLqjeeabDA9VIy3NtQd/IHHLvHVsdoa2gNgaLBG2A==",
   "success": true,
-  "projectFilePath": "D:\\Visual Studio Code\\SSD\\SSD-Assignment-2\\Food2U\\Food2U.csproj",
+  "projectFilePath": "D:\\Visual Studio Code\\SSD\\SSD-Assignment-2\\food2u\\Food2U.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hskar\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\hskar\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
