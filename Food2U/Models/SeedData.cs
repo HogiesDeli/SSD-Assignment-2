@@ -80,6 +80,8 @@ namespace Food2U.Models
                 db.Order.AddRange(
                 // Need to add variable to calc total from items picked
                 );
+
+                db.SaveChanges();
             }
         }
     }

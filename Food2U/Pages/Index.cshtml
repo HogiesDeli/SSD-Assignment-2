@@ -12,16 +12,44 @@
 
     <br>
 
-    <p>
-    <form method="/action_page.php">
-        <label for="fname">Name:</label>
-        <input type="text" id="fname" name="fname">
+    <form method="post">
+        <div class="form-group w-25 mx-auto">
+            <select id="userTypeDropDown" asp-items="IndexModel.userTypeOptions()" class="form-control">
+                <option value="">-- Select User Type --</option>
+            </select>
+        </div>
 
-        <br><br>
-
-        <input type="submit" value="Submit"; asp-page="/LocalRestaurant">
+        <div class="form-group w-25 mx-auto">
+            <select id="userNameDropdown" name="users" asp-items="null" class="form-control">
+                <option value="">-- Select Name --</option>
+            </select>
+        </div>
         
+        <div class="form-group mt-3 text-center">
+            <input type="submit" value="Continue" class="btn btn-secondary">
+        </div>
     </form>
-    </p>
 
 </div>
+
+@section scripts{ 
+<script>
+    $("#userTypeDropDown").on("change", function () {
+        var userType = $(this).val();
+        $.ajax({
+            method: 'get',
+            url: '/Index?handler=FetchUserNames',
+            data: {userType: userType },
+            success: function (res) {
+                $("#userNameDropdown").empty();
+                var htmlString = "";
+                $.each(res, function (k, v) {
+                    htmlString += "<option value='" + v.val + "'>" + v.val + "</option>";
+                });
+                $("#userNameDropdown").append(htmlString);
+            }
+
+        })
+    })
+</script>
+}

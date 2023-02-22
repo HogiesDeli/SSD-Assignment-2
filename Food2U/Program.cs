@@ -14,12 +14,12 @@ builder.Services.AddDbContext<Food2UContext>(options =>
 var app = builder.Build();
 
 //JH
-/*using (var scope = app.Services.CreateScope())
+using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
 
     SeedData.Initialize(services);
-}*/
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
