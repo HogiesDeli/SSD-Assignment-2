@@ -10,9 +10,9 @@ namespace Food2U.Pages;
 public class IndexModel : PageModel
 {
     private readonly ILogger<IndexModel> _logger;
-    private readonly Food2UContext _context;
+    private readonly Food2UDbContext _context;
 
-    public IndexModel(ILogger<IndexModel> logger, Food2UContext context)
+    public IndexModel(ILogger<IndexModel> logger, Food2UDbContext context)
     {
         _logger = logger;
         _context = context; //grab db context
@@ -52,7 +52,7 @@ public class IndexModel : PageModel
         {
             //populate each dropdown type from db
             shopper = _context.Shoppers.ToList();
-            deliveryPeople = _context.DeliverPerson.ToList();
+            deliveryPeople = _context.DeliveryPerson.ToList();
             restaurants = _context.LocalRestaurants.ToList();
 
             //save selected userid for when page changes
@@ -67,13 +67,13 @@ public class IndexModel : PageModel
                 switch (UserType) //sort posts - date desc is defaulted
                 {
                 case "Shoppers":
-                    displayedDropDown = new SelectList(shopper, "shopperID", "Name");
+                    displayedDropDown = new SelectList(shopper, "shoppersID", "Name");
                     break;
                 case "DeliverPerson":
-                    displayedDropDown = new SelectList(deliveryPeople, "driverID", "Name");
+                    displayedDropDown = new SelectList(deliveryPeople, "deliverypersonID", "Name");
                     break;
                 case "LocalRestaurants":
-                    displayedDropDown =  new SelectList(restaurants, "restaurantID", "Name");
+                    displayedDropDown =  new SelectList(restaurants, "localrestaurantsID", "Name");
                     break;
                 default:
                     displayedDropDown = null;
