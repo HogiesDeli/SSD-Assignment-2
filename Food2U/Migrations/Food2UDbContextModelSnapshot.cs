@@ -2,107 +2,99 @@
 using Food2U.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
 namespace Food2U.Migrations
 {
-    [DbContext(typeof(Food2UContext))]
-    [Migration("20230211195437_InitialCreate")]
-    partial class InitialCreate
+    [DbContext(typeof(Food2UDbContext))]
+    partial class Food2UDbContextModelSnapshot : ModelSnapshot
     {
-        /// <inheritdoc />
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.2");
 
             modelBuilder.Entity("Food2U.Models.DeliveryPerson", b =>
                 {
-                    b.Property<int>("driverID")
+                    b.Property<int>("deliverypersonID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Vehichle")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("driverID");
+                    b.HasKey("deliverypersonID");
 
-                    b.ToTable("DeliverPerson");
+                    b.ToTable("DeliveryPerson");
                 });
 
             modelBuilder.Entity("Food2U.Models.Items", b =>
                 {
-                    b.Property<int>("itemID")
+                    b.Property<int>("itemsID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("itemID");
+                    b.HasKey("itemsID");
 
                     b.ToTable("Items");
                 });
 
             modelBuilder.Entity("Food2U.Models.LocalRestaurants", b =>
                 {
-                    b.Property<int>("restaurantID")
+                    b.Property<int>("localrestaurantsID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Address")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Menu")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("restaurantID");
+                    b.HasKey("localrestaurantsID");
 
                     b.ToTable("LocalRestaurants");
                 });
 
-            modelBuilder.Entity("Food2U.Models.Order", b =>
-                {
-                    b.Property<int>("orderID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("INTEGER");
-
-                    b.Property<decimal>("Total")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("orderID");
-
-                    b.ToTable("Order");
-                });
-
             modelBuilder.Entity("Food2U.Models.Shoppers", b =>
                 {
-                    b.Property<int>("shopperID")
+                    b.Property<int>("shoppersID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Address")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("shopperID");
+                    b.HasKey("shoppersID");
 
                     b.ToTable("Shoppers");
                 });

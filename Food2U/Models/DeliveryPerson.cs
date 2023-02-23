@@ -1,13 +1,10 @@
-using System.ComponentModel.DataAnnotations;
-
 namespace Food2U.Models
 {
     public class DeliveryPerson
     {
-        [Key]
-        public int driverID { get; set; }
-        public string? Name { get; set; }
-        public string? Vehichle { get; set; }
-        public string? Email { get; set; }
+        public int deliverypersonID { get; set; } //PK
+        public string Name { get; set; } = string.Empty;
+        public string Vehichle { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
     }
 }

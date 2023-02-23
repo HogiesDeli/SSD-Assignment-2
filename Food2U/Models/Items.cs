@@ -1,13 +1,9 @@
-using System.ComponentModel.DataAnnotations;
-
 namespace Food2U.Models
 {
     public class Items
     {
-        [Key]
-        public int itemID { get; set; }
-        public string? Name { get; set; }
+        public int itemsID { get; set; } //PK
+        public string Name { get; set; } = string.Empty;
         public decimal Price { get; set; }
     }
 }
-

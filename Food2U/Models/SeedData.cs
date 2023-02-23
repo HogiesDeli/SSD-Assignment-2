@@ -1,8 +1,6 @@
-using System;
+
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using System.Linq;
-using System.Collections.Generic;
+
 
 namespace Food2U.Models
 {
@@ -10,47 +8,44 @@ namespace Food2U.Models
     {
         public static void Initialize(IServiceProvider serviceProvider)
         {
-            using (var db = new Food2UContext(serviceProvider.GetRequiredService<DbContextOptions<Food2UContext>>()))
+            using (var context = new Food2UDbContext(serviceProvider.GetRequiredService<DbContextOptions<Food2UDbContext>>()))
             {
-                if (db.Shoppers.Any())
+                if (context.Shoppers.Any())
                 {
                     return;
                 }
-                if (db.LocalRestaurants.Any())
+                if (context.LocalRestaurants.Any())
                 {
                     return;
                 }
-                if (db.DeliverPerson.Any())
+                if (context.DeliveryPerson.Any())
                 {
                     return;
                 }
-                if (db.Items.Any())
-                {
-                    return;
-                }
-                if (db.Order.Any())
+                if (context.Items.Any())
                 {
                     return;
                 }
 
-                db.Shoppers.AddRange(
+
+                context.Shoppers.AddRange(
                  new Shoppers { Name = "Hogan Karr", Address = "5555 Wolflin Drive" },
                  new Shoppers { Name = "John Hernandez", Address = "5556 Coulter Road" }
                 );
 
-                db.LocalRestaurants.AddRange(
+                context.LocalRestaurants.AddRange(
                     new LocalRestaurants { Name = "Chick-fil-A", Address = "3420 Georgia Street" },
                     new LocalRestaurants { Name = "McDonald's", Address = "2600 34th Street" },
                     new LocalRestaurants { Name = "Burger King", Address = "6570 Washington Drive" },
                     new LocalRestaurants { Name = "Subway", Address = "839 Soncy Road" }
                 );
 
-                db.DeliverPerson.AddRange(
+                context.DeliveryPerson.AddRange(
                     new DeliveryPerson { Name = "Tom Hicks", Vehichle = "Ford Focus", Email = "tomhicks@gmail.com" },
                     new DeliveryPerson { Name = "Julie Bently", Vehichle = "Toyota Camery", Email = "jbently@outlook.com" }
                 );
 
-                db.Items.AddRange(
+                context.Items.AddRange(
                     // Chick-fil-A items
                     new Items { Name = "12 Count Nugget Meal", Price = Convert.ToDecimal(10.55) },
                     new Items { Name = "Chick-fil-A Deluxe", Price = Convert.ToDecimal(9.25) },
@@ -77,11 +72,7 @@ namespace Food2U.Models
                    new Items { Name = "Subway Melt", Price = Convert.ToDecimal(9.49) }
                 );
 
-                db.Order.AddRange(
-                // Need to add variable to calc total from items picked
-                );
-
-                db.SaveChanges();
+                context.SaveChanges();
             }
         }
     }
