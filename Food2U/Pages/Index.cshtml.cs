@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Food2U.Models;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 
 namespace Food2U.Pages;
 
@@ -10,6 +11,14 @@ public class IndexModel : PageModel
 {
     private readonly ILogger<IndexModel> _logger;
     private readonly Food2UContext _context;
+
+    public IndexModel(ILogger<IndexModel> logger, Food2UContext context)
+    {
+        _logger = logger;
+        _context = context; //grab db context
+    }
+
+    //First dropdowns options
     public static IEnumerable<SelectListItem> userTypeOptions() {
         return new[]
         {
@@ -19,50 +28,91 @@ public class IndexModel : PageModel
         };
     } 
 
+    //list to stores db object queries
     public List<Shoppers> shopper {get; set;} = default!;
     public List<DeliveryPerson> deliveryPeople {get; set;} = default!;
     public List<LocalRestaurants> restaurants {get; set;} = default!;
 
-    public SelectList shopperList {get; set;} = default!;
-    public SelectList deliveryDriverList {get; set;} = default!;
-    public SelectList restaurantList {get; set;} = default!;
+    //select list to store the select list type chosen
+    public SelectList? displayedDropDown {get; set;} = default!;
 
-    public SelectList displayedDropDown {get; set;} = default!;
+    //Temporary properties to binded to html to get values
+    [BindProperty(SupportsGet = true)]
+    public string? SelectedUserType {get; set;}
 
-    public IActionResult OnGetFetchUserNames(string userType)
-    {
-        switch (userType)
+    [BindProperty(SupportsGet = true)]
+    public int? SelectedUserID {get; set;}
+
+    //Properties to remember selected temporary values - store selected in OnGet and OnPost method
+    public string? UserType {get; set;}
+    public int? UserID {get; set;}
+
+    //called to select list (dropdown) of users depending on the first value selected
+    public IActionResult OnGet()
         {
-            case "Shoppers":
-                displayedDropDown = shopperList;
-                break;
-            case "DeliverPerson":
-                displayedDropDown = deliveryDriverList;
-                break;
-            case "LocalRestaurants":
-                displayedDropDown = restaurantList;
-                break;
+            //populate each dropdown type from db
+            shopper = _context.Shoppers.ToList();
+            deliveryPeople = _context.DeliverPerson.ToList();
+            restaurants = _context.LocalRestaurants.ToList();
+
+            //save selected userid for when page changes
+            if (SelectedUserType != null)
+            {
+                UserType = SelectedUserType;
+            }
+
+            //Switch statement to set dropdown users depending on selected type
+            if (UserType != null) 
+            {
+                switch (UserType) //sort posts - date desc is defaulted
+                {
+                case "Shoppers":
+                    displayedDropDown = new SelectList(shopper, "shopperID", "Name");
+                    break;
+                case "DeliverPerson":
+                    displayedDropDown = new SelectList(deliveryPeople, "driverID", "Name");
+                    break;
+                case "LocalRestaurants":
+                    displayedDropDown =  new SelectList(restaurants, "restaurantID", "Name");
+                    break;
+                default:
+                    displayedDropDown = null;
+                    break;
+
+                }
+            }
+
+            return Page();
+        }
+    
+    //Post values and reroute depending on selected values
+    public IActionResult OnPost()
+    {
+        //store usertype if not null
+        if (SelectedUserType != null)
+        {
+            UserType = SelectedUserType;
         }
 
-        Console.WriteLine(displayedDropDown.ToString());
+        //log usertype to see whats passed
+        _logger.LogWarning(UserType);
 
-        return new JsonResult(displayedDropDown);
-    }
+        //store userid if not null
+        if (SelectedUserID != null)
+            {
+                UserID = SelectedUserID;
+            }
 
-    public IndexModel(ILogger<IndexModel> logger, Food2UContext context)
-    {
-        _logger = logger;
-        _context = context;
-    }
+        //log userid if not null
+        _logger.LogWarning(UserID.ToString());
 
-    public void OnGet()
-    {
-        shopper = _context.Shoppers.ToList();
-        deliveryPeople = _context.DeliverPerson.ToList();
-        restaurants = _context.LocalRestaurants.ToList();
-
-        shopperList = new SelectList(shopper, "shopperID", "Name");
-        deliveryDriverList = new SelectList(deliveryPeople, "driverID", "Name");
-        restaurantList = new SelectList(restaurants, "restaurantID", "Name");
+        //if usertype is shoppers and userid is populated then route to chooseitems.cshtml page and pass variables to use if needed
+        if (UserType == "Shoppers" && UserID != null)
+                {
+                    return RedirectToPage("./Chooseitems", new {userId = UserID, userType = UserType});
+                }
+        
+        //return new Index page if routing criteria not met to start over
+        return RedirectToPage("./Index");
     }
 }

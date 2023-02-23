@@ -12,7 +12,8 @@ public class ChooseItemsModel : PageModel
         _logger = logger;
     }
 
-    public void OnGet()
+    public void OnGet(int? userId, string? userType)
     {
+        
     }
 }

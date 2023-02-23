@@ -12,44 +12,39 @@
 
     <br>
 
-    <form method="post">
-        <div class="form-group w-25 mx-auto">
-            <select id="userTypeDropDown" asp-items="IndexModel.userTypeOptions()" class="form-control">
-                <option value="">-- Select User Type --</option>
-            </select>
-        </div>
-
-        <div class="form-group w-25 mx-auto">
-            <select id="userNameDropdown" name="users" asp-items="null" class="form-control">
-                <option value="">-- Select Name --</option>
-            </select>
-        </div>
+    <form method="get">
         
-        <div class="form-group mt-3 text-center">
-            <input type="submit" value="Continue" class="btn btn-secondary">
+        @if (Model.UserType == null)
+        {
+            <div class="form-group w-25 mx-auto">
+                <select id="userTypeDropDown" asp-for="SelectedUserType" asp-items="IndexModel.userTypeOptions()" class="form-control">
+                    <option value="">-- Select User Type --</option>
+                </select>
+            </div>
+
+            <div class="form-group mt-3 text-center">
+                <input asp-route-userType="@Model.SelectedUserType" type="submit" value="Continue" class="btn btn-secondary">
+            </div>
+        }
+
+    </form>
+
+    <form method="post">
+
+        @if (Model.UserType != null) {
+            <div class="form-group w-25 mx-auto">
+                <select asp-for="SelectedUserID" id="userNameDropDown" asp-items="Model.displayedDropDown" class="form-control">
+                    <option value="">-- Select Username --</option>
+                </select>
+            </div>
+
+            <input type="hidden" asp-for="SelectedUserType"/>
+
+            <div class="form-group mt-3 text-center">
+            <input type="submit" value="Login" class="btn btn-secondary">
         </div>
+        }
+
     </form>
 
 </div>
-
-@section scripts{ 
-<script>
-    $("#userTypeDropDown").on("change", function () {
-        var userType = $(this).val();
-        $.ajax({
-            method: 'get',
-            url: '/Index?handler=FetchUserNames',
-            data: {userType: userType },
-            success: function (res) {
-                $("#userNameDropdown").empty();
-                var htmlString = "";
-                $.each(res, function (k, v) {
-                    htmlString += "<option value='" + v.val + "'>" + v.val + "</option>";
-                });
-                $("#userNameDropdown").append(htmlString);
-            }
-
-        })
-    })
-</script>
-}
