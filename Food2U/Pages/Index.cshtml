@@ -12,16 +12,39 @@
 
     <br>
 
-    <p>
-    <form method="/action_page.php">
-        <label for="fname">Name:</label>
-        <input type="text" id="fname" name="fname">
-
-        <br><br>
-
-        <input type="submit" value="Submit"; asp-page="/LocalRestaurant">
+    <form method="get">
         
+        @if (Model.UserType == null)
+        {
+            <div class="form-group w-25 mx-auto">
+                <select id="userTypeDropDown" asp-for="SelectedUserType" asp-items="IndexModel.userTypeOptions()" class="form-control">
+                    <option value="">-- Select User Type --</option>
+                </select>
+            </div>
+
+            <div class="form-group mt-3 text-center">
+                <input asp-route-userType="@Model.SelectedUserType" type="submit" value="Continue" class="btn btn-secondary">
+            </div>
+        }
+
     </form>
-    </p>
+
+    <form method="post">
+
+        @if (Model.UserType != null) {
+            <div class="form-group w-25 mx-auto">
+                <select asp-for="SelectedUserID" id="userNameDropDown" asp-items="Model.displayedDropDown" class="form-control">
+                    <option value="">-- Select Username --</option>
+                </select>
+            </div>
+
+            <input type="hidden" asp-for="SelectedUserType"/>
+
+            <div class="form-group mt-3 text-center">
+            <input type="submit" value="Login" class="btn btn-secondary">
+        </div>
+        }
+
+    </form>
 
 </div>

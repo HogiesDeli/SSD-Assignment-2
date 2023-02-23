@@ -2,6 +2,7 @@
 using Food2U.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -9,110 +10,101 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Food2U.Migrations
 {
     [DbContext(typeof(Food2UDbContext))]
-    partial class Food2UDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230221215648_IntialCreate")]
+    partial class IntialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.2");
 
             modelBuilder.Entity("Food2U.Models.DeliveryPerson", b =>
                 {
-                    b.Property<int>("deliverypersonID")
+                    b.Property<int>("driverID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Vehicle")
-                        .IsRequired()
+                    b.Property<string>("Vehichle")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("deliverypersonID");
+                    b.HasKey("driverID");
 
-                    b.ToTable("DeliveryPerson");
+                    b.ToTable("DeliverPerson");
                 });
 
             modelBuilder.Entity("Food2U.Models.Items", b =>
                 {
-                    b.Property<int>("itemsID")
+                    b.Property<int>("itemID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("localrestaurantsID")
-                        .HasColumnType("INTEGER");
-
-                    b.HasKey("itemsID");
-
-                    b.HasIndex("localrestaurantsID");
+                    b.HasKey("itemID");
 
                     b.ToTable("Items");
                 });
 
             modelBuilder.Entity("Food2U.Models.LocalRestaurants", b =>
                 {
-                    b.Property<int>("localrestaurantsID")
+                    b.Property<int>("restaurantID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Address")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Menu")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("localrestaurantsID");
+                    b.HasKey("restaurantID");
 
                     b.ToTable("LocalRestaurants");
                 });
 
+            modelBuilder.Entity("Food2U.Models.Order", b =>
+                {
+                    b.Property<int>("orderID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<decimal>("Total")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("orderID");
+
+                    b.ToTable("Order");
+                });
+
             modelBuilder.Entity("Food2U.Models.Shoppers", b =>
                 {
-                    b.Property<int>("shoppersID")
+                    b.Property<int>("shopperID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Address")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.HasKey("shoppersID");
+                    b.HasKey("shopperID");
 
                     b.ToTable("Shoppers");
-                });
-
-            modelBuilder.Entity("Food2U.Models.Items", b =>
-                {
-                    b.HasOne("Food2U.Models.LocalRestaurants", "LocalRestaurants")
-                        .WithMany()
-                        .HasForeignKey("localrestaurantsID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("LocalRestaurants");
                 });
 #pragma warning restore 612, 618
         }

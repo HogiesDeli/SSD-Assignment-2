@@ -18643,57 +18643,6 @@
     "CSharpLanguageVersion": 1100
   },
   "RootNamespace": "Food2U",
-  "Documents": [
-    {
-      "FilePath": "d:\\Visual Studio Code\\SSD\\SSD-Assignment-2\\Food2U\\Pages\\Index.cshtml",
-      "TargetPath": "Pages\\Index.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\Visual Studio Code\\SSD\\SSD-Assignment-2\\Food2U\\Pages\\Error.cshtml",
-      "TargetPath": "Pages\\Error.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\Visual Studio Code\\SSD\\SSD-Assignment-2\\Food2U\\Pages\\ChooseItems.cshtml",
-      "TargetPath": "Pages\\ChooseItems.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\Visual Studio Code\\SSD\\SSD-Assignment-2\\Food2U\\Pages\\_ViewStart.cshtml",
-      "TargetPath": "Pages\\_ViewStart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\Visual Studio Code\\SSD\\SSD-Assignment-2\\Food2U\\Pages\\Shared\\_ValidationScriptsPartial.cshtml",
-      "TargetPath": "Pages\\Shared\\_ValidationScriptsPartial.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\Visual Studio Code\\SSD\\SSD-Assignment-2\\Food2U\\Pages\\_ViewImports.cshtml",
-      "TargetPath": "Pages\\_ViewImports.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\Visual Studio Code\\SSD\\SSD-Assignment-2\\Food2U\\Pages\\ShoppingCart.cshtml",
-      "TargetPath": "Pages\\ShoppingCart.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\Visual Studio Code\\SSD\\SSD-Assignment-2\\Food2U\\Pages\\Shared\\_Layout.cshtml",
-      "TargetPath": "Pages\\Shared\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\Visual Studio Code\\SSD\\SSD-Assignment-2\\Food2U\\Pages\\Privacy.cshtml",
-      "TargetPath": "Pages\\Privacy.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "d:\\Visual Studio Code\\SSD\\SSD-Assignment-2\\Food2U\\Pages\\LocalRestaurant.cshtml",
-      "TargetPath": "Pages\\LocalRestaurant.cshtml",
-      "FileKind": "mvc"
-    }
-  ],
+  "Documents": [],
   "SerializationFormat": "0.3"
 }
