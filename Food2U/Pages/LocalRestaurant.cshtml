@@ -3,20 +3,32 @@
 @{
     ViewData["Title"] = "Local Restaurant";
 }
-<h1>@ViewData["Title"]</h1>
+<h1>Welcome Back @Model.UserRestaurant!.Name</h1>
 
 <br>
 
-<p>Hello, Welcome to Food2U</p>
+<p>Edit and manage item listings</p>
 
-@* HK *@
-@* Removed static form for Restaurants, added form that pulls names & addresses from DB *@
-<form method = "post">
-    <p>Please choose from the following list of restaurants for food items</p>
-    @foreach (var l in Model.LocalRestaurants)
+<h1>Current Items</h1>
+
+<div class="row row-cols-1 row-cols-md-4 g-4">
+    @foreach (var item in @Model.Items)
     {
-        <p>@Html.RadioButtonFor(model => model.LocalRestaurants, l.Name)@l.Name 
-            - @Html.DisplayFor(modelLocalRestaurants => l.Address)</p> <br><br>
+        <div class="col">
+            <div class="card text-center bg-light" style="width: 18rem;">
+            <img class="card-img-top center-block" src="dish.png" alt="Card image cap" style="width: 150px; height: 150px;">
+            <div class="card-body">
+                <h5 class="card-title">@item.Name</h5>
+                <p class="card-text">@item.Price</p>
+            </div>
+            <div class="card-footer bg-transparent">
+                <div class="d-flex justify-content-between">
+                    <a href="#" class="btn btn-primary">Edit Item</a>
+                    <a href="#" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+        </div>
+        </div>
     }
-    <input type="submit" value="Submit"; asp-page="/ChooseItems">
-</form>
+</div>
+

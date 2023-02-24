@@ -10,16 +10,29 @@ public class LocalRestaurantModel : PageModel
 {
     private readonly Food2UDbContext _context;
     private readonly ILogger<LocalRestaurantModel> _logger;
-    public List<LocalRestaurants> LocalRestaurants { get; set; } = default!;
+
+    //Store restuarants items
+    public List<Items> Items { get; set; } = default!;
+
+    //Store logged in restuarant information
+    public LocalRestaurants? UserRestaurant {get; set;}
+
+
 
     public LocalRestaurantModel(Food2UDbContext context, ILogger<LocalRestaurantModel> logger)
     {
         _context = context;
         _logger = logger;
+
+        
     }
 
-    public void OnGet()
-    {
-        LocalRestaurants = _context.LocalRestaurants.ToList();
+    public void OnGet(int? userId, string? userType)
+    {   
+        //Grab logged in restaurant user information
+        UserRestaurant = _context.LocalRestaurants.Where(u => u.localrestaurantsID == userId).FirstOrDefault();
+        
+        //Grab restaurants items where restaurantId equals logged in restaurant
+        Items = _context.Items.Where(i => i.localrestaurantsID == userId).ToList();
     }
 }
