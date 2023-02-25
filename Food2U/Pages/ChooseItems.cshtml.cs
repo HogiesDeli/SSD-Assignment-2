@@ -17,7 +17,6 @@ public class ChooseItemsModel : PageModel
 
     public Dictionary<LocalRestaurants, List<Items>> RestaurantMenus { get; set; } = new Dictionary<LocalRestaurants, List<Items>>();
 
-    public List<Items> ShoppingCart { get; set; } = new List<Items>();
 
     public ChooseItemsModel(Food2UDbContext context, ILogger<ChooseItemsModel> logger)
     {
@@ -27,19 +26,10 @@ public class ChooseItemsModel : PageModel
 
     public List<LocalRestaurants> LocalRestaurants { get; set; } = default!;
 
-    public async Task<IActionResult> OnGet(int? userId, string? userType, string? objectStringfied)
+    public async Task<IActionResult> OnGet(int? userId, string? userType)
     {
-        if (objectStringfied != null)
-        {
-            _logger.LogWarning(objectStringfied);
-            ShoppingCart = TempData["cart"] as List<Items>;
-            foreach (var item in ShoppingCart)
-            {
-                _logger.LogWarning(item.Name);
-            }
-        }
-
         Shopper = await _context.Shoppers.Where(u => u.shoppersID == (int)userId!).FirstOrDefaultAsync();
+
 
         var restaurantsList = await _context.LocalRestaurants.ToListAsync();
 
@@ -58,20 +48,12 @@ public class ChooseItemsModel : PageModel
         switch (functionType)
         {
             case "addToCart":
-                var getItem = await _context.Items.Where(r => r.localrestaurantsID == restaurantId).Where(i => i.itemsID == itemid).FirstOrDefaultAsync();
-                ShoppingCart.Add(getItem);
+                //cart functions would go here
 
-                TempData["cart"] = ShoppingCart;
-
-                foreach (var item in ShoppingCart)
-                {
-                    _logger.LogWarning("posting");
-                    _logger.LogWarning(item.Name);
-                }
                 break;
         }
 
-        return RedirectToPage("./ChooseItems", new { userId = userId, userType = userType, objectStringfied = Newtonsoft.Json.JsonConvert.SerializeObject(ShoppingCart) });
+        return RedirectToPage("./ChooseItems", new { userId = userId, userType = userType });
     }
 
     private async Task<List<Items>> _getRestaurantItemsAsync(int restaurantID)

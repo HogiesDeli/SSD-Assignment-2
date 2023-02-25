@@ -43,16 +43,29 @@
             <h4>Cart</h4>
         </div>
         <div class="row border rounded">
-            <div class="col py-3 min-vh-75">
+            <div class="col w-25 py-3 min-vh-75">
                 <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0"
                     class="scrollspy-example">
-                    @foreach (var item in @Model.ShoppingCart)
-                    {
-                        <div>
-                            <h6>@item.Name</h6>
-                            <p>@item.Price</p>
-                        </div>
-                    }
+                    <div>
+                        <h5>Example Item 1</h5>
+                        <p>Price: $6.99      Quantity: 1</p>
+                    </div>
+                    <div>
+                        <h5>Example Item 2</h5>
+                        <p>Price: $6.99      Quantity: 1</p>
+                    </div>
+                    <div>
+                        <h5>Example Item 3</h5>
+                        <p>Price: $6.99      Quantity: 1</p>
+                    </div>
+                    <div>
+                        <h5>Example Item 4</h5>
+                        <p>Price: $6.99      Quantity: 1</p>
+                    </div>
+                    <div>
+                        <h5>Example Item 5</h5>
+                        <p>Price: $6.99      Quantity: 1</p>
+                    </div>
                 </div>
             </div>
         </div>
