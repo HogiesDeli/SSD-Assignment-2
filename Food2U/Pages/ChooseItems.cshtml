@@ -3,13 +3,13 @@
 @{
     ViewData["Title"] = "Food Choices";
 }
-<h3>Welcome back @Model.shopper.Name</h3>
+<h3>Welcome back @Model.Shopper.Name</h3>
 
 <br>
 
 <div class="row gx-5">
     <div class="col-8">
-        @foreach (KeyValuePair<Models.LocalRestaurants, List<Models.Items>> foodMenu in @Model.restaurantMenus)
+        @foreach (KeyValuePair<Models.LocalRestaurants, List<Models.Items>> foodMenu in @Model.RestaurantMenus)
         {
             <div>
                 <h4>@foodMenu.Key.Name</h4>
@@ -25,7 +25,9 @@
                                     </div>
                                     <form method="post">
                                         <div class="card-footer bg-transparent">
-                                            <button asp-route-restaurantId="@item.localrestaurantsID" asp-route-userId="@Model.shopper.shoppersID" asp-route-functionType="addToCart" asp-route-itemid="@item.itemsID" class="btn btn-outline-danger">Add</button>
+                                            <button asp-route-restaurantId="@item.localrestaurantsID"
+                                        asp-route-userId="@Model.Shopper.shoppersID" asp-route-functionType="addToCart"
+                                        asp-route-itemid="@item.itemsID" class="btn btn-outline-danger">Add</button>
                                         </div>
                                     </form>
                                 </div>
@@ -41,20 +43,21 @@
             <h4>Cart</h4>
         </div>
         <div class="row border rounded">
-            <div class="col py-3">
-                <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example"
-                    @* @foreach (var item in @Model.shopper.cart)
+            <div class="col py-3 min-vh-75">
+                <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0"
+                    class="scrollspy-example">
+                    @foreach (var item in @Model.ShoppingCart)
                     {
                         <div>
                             <h6>@item.Name</h6>
                             <p>@item.Price</p>
                         </div>
-                    } *@
+                    }
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col">
+        <div class="col">
+            <div class="row">
                 <button class="btn btn-danger btn-lg col-12">Checkout</button>
             </div>
         </div>
