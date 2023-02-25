@@ -20,3 +20,20 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.horizontal-scrollable > .row {
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.horizontal-scrollable > .row > .col-xs-4 {
+  display: inline-block;
+  float: none;
+}
+
+.card-text {
+  overflow-wrap: anywhere;
+  word-wrap: break-word;
+  word-break: normal;
+  hyphens: auto;
+}

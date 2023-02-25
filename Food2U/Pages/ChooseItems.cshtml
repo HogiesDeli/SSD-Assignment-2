@@ -3,13 +3,60 @@
 @{
     ViewData["Title"] = "Food Choices";
 }
-<h1>@ViewData["Title"]</h1>
+<h3>Welcome back @Model.shopper.Name</h3>
 
 <br>
 
-<p>Food2U</p>
-
-<form>
-    <p>Please choose from the following list of food items</p>    
-
-</form>
+<div class="row gx-5">
+    <div class="col-8">
+        @foreach (KeyValuePair<Models.LocalRestaurants, List<Models.Items>> foodMenu in @Model.restaurantMenus)
+        {
+            <div>
+                <h4>@foodMenu.Key.Name</h4>
+                <div class="container horizontal-scrollable">
+                    <div class="row text-center">
+                        @foreach (var item in @foodMenu.Value)
+                        {
+                            <div class="col">
+                                <div class="card mb-3" style="max-width: 20rem;">
+                                    <div class="card-body">
+                                        <h5 class="card-title">@item.Name</h5>
+                                        <p class="card-text">$@item.Price</p>
+                                    </div>
+                                    <form method="post">
+                                        <div class="card-footer bg-transparent">
+                                            <button asp-route-restaurantId="@item.localrestaurantsID" asp-route-userId="@Model.shopper.shoppersID" asp-route-functionType="addToCart" asp-route-itemid="@item.itemsID" class="btn btn-outline-danger">Add</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="col-4">
+        <div class="row text-center">
+            <h4>Cart</h4>
+        </div>
+        <div class="row border rounded">
+            <div class="col py-3">
+                <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example"
+                    @* @foreach (var item in @Model.shopper.cart)
+                    {
+                        <div>
+                            <h6>@item.Name</h6>
+                            <p>@item.Price</p>
+                        </div>
+                    } *@
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <button class="btn btn-danger btn-lg col-12">Checkout</button>
+            </div>
+        </div>
+    </div>
+</div>
