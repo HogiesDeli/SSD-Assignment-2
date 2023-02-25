@@ -3,20 +3,68 @@
 @{
     ViewData["Title"] = "Local Restaurant";
 }
-<h1>@ViewData["Title"]</h1>
+<h1>Welcome Back @Model.UserRestaurant!.Name</h1>
 
 <br>
 
-<p>Hello, Welcome to Food2U</p>
+<p>Add and manage item listings.</p>
+<i>Just a demonstration but could also contain orders placed by customers in a seperate box here or new page</i>
+<br>
 
-@* HK *@
-@* Removed static form for Restaurants, added form that pulls names & addresses from DB *@
-<form method = "post">
-    <p>Please choose from the following list of restaurants for food items</p>
-    @foreach (var l in Model.LocalRestaurants)
-    {
-        <p>@Html.RadioButtonFor(model => model.LocalRestaurants, l.Name)@l.Name 
-            - @Html.DisplayFor(modelLocalRestaurants => l.Address)</p> <br><br>
-    }
-    <input type="submit" value="Submit"; asp-page="/ChooseItems">
-</form>
+<div class="container">
+    <div class="row gx-5">
+        <div class="col-8 border rounded p-3">
+            <h3>Current Items</h3>
+            <div class="row">
+                @foreach (var item in @Model.Items)
+                {
+                <div class="col-sm-4 d-flex align-items-stretch mb-5">
+                    <div class="card text-center bg-light" style="width: 18rem;">
+                        <img class="card-img-top m-auto " src="dish.png" alt="Card image cap" style="width: 150px; height: 150px;">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.Name</h5>
+                            <p class="card-text">@item.Price</p>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <div class="d-flex justify-content-end">
+                                <form method="post">
+                                    <button class="btn btn-outline-danger" asp-route-userId="@Model.UserId" asp-route-userType="@Model.UserType" asp-route-itemId="@item.itemsID" asp-route-functionType="delete">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+        <div class="col-sm-3 m text-center">
+            <div class="col h-50 border rounded mb-3">
+                <h3>Add Item</h3>
+                <form method="post" class="from-group p-2">
+                    <div>
+                        <input asp-for="item.Name" class="mb-2" type="text" placeholder="Item Name">
+                        <div>
+                            <span asp-validation-for="item.Name" class="text-danger"></span>
+                        </div>
+                        <input asp-for="item.Price" class="mb-2" type="text" placeholder="Price">
+                        <div>
+                            <span asp-validation-for="item.Price" class="text-danger"></span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <input asp-route-functionType="addItem" asp-route-userId="@Model.UserId" asp-route-userType="@Model.UserType" type="submit" value="Add Item"
+                            class="btn btn-primary btn-block" />
+                    </div>
+                </form>
+            </div>
+            <div class="col h-50 border rounded">
+                <h3>orders</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

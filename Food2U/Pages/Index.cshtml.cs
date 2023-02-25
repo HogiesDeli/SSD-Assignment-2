@@ -112,6 +112,11 @@ public class IndexModel : PageModel
                     return RedirectToPage("./Chooseitems", new {userId = UserID, userType = UserType});
                 }
         
+        if (UserType == "LocalRestaurants" && UserID != null)
+                {
+                    return RedirectToPage("./LocalRestaurant", new {userId = UserID, userType = UserType});
+                }
+        
         //return new Index page if routing criteria not met to start over
         return RedirectToPage("./Index");
     }
