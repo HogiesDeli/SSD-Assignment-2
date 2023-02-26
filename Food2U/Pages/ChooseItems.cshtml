@@ -23,13 +23,11 @@
                                         <h5 class="card-title">@item.Name</h5>
                                         <p class="card-text">$@item.Price</p>
                                     </div>
-                                    <form>
-                                        <div class="card-footer bg-transparent">
-                                            <button asp-route-restaurantId="@item.localrestaurantsID"
-                                        asp-route-userId="@Model.Shopper.shoppersID" asp-route-functionType="addToCart"
-                                        asp-route-itemid="@item.itemsID" class="btn btn-outline-danger">Add</button>
-                                        </div>
-                                    </form>
+
+                                    <div class="card-footer bg-transparent">
+                                        <button class="btn btn-outline-danger">Add</button>
+                                    </div>
+
                                 </div>
                             </div>
                         }
@@ -48,23 +46,23 @@
                     class="scrollspy-example">
                     <div>
                         <h5>Example Item 1</h5>
-                        <p>Price: $6.99      Quantity: 1</p>
+                        <p>Price: $6.99 Quantity: 1</p>
                     </div>
                     <div>
                         <h5>Example Item 2</h5>
-                        <p>Price: $6.99      Quantity: 1</p>
+                        <p>Price: $6.99 Quantity: 1</p>
                     </div>
                     <div>
                         <h5>Example Item 3</h5>
-                        <p>Price: $6.99      Quantity: 1</p>
+                        <p>Price: $6.99 Quantity: 1</p>
                     </div>
                     <div>
                         <h5>Example Item 4</h5>
-                        <p>Price: $6.99      Quantity: 1</p>
+                        <p>Price: $6.99 Quantity: 1</p>
                     </div>
                     <div>
                         <h5>Example Item 5</h5>
-                        <p>Price: $6.99      Quantity: 1</p>
+                        <p>Price: $6.99 Quantity: 1</p>
                     </div>
                 </div>
             </div>
@@ -72,7 +70,8 @@
         <div class="col">
             <div class="row">
                 <form method="post">
-                    <button asp-route-userType="Shoppers" asp-route-userId="@Model.Shopper.shoppersID" asp-route-functionType="checkout" class="btn btn-danger btn-lg col-12">Checkout</button>
+                    <button asp-route-userType="Shoppers" asp-route-userId="@Model.Shopper.shoppersID"
+                        asp-route-functionType="checkout" class="btn btn-danger btn-lg col-12">Checkout</button>
                 </form>
             </div>
         </div>
