@@ -32,12 +32,7 @@ public class DeliveryDriver : PageModel
         Driver = await _context.DeliveryPerson.Where(i => i.deliverypersonID == (int)userId).FirstOrDefaultAsync();
 
 
-
+        //Load this page
         return Page();
-    }
-
-    public static implicit operator DeliveryDriver?(DeliveryPerson? v)
-    {
-        throw new NotImplementedException();
     }
 }
