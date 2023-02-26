@@ -23,7 +23,7 @@
                                         <h5 class="card-title">@item.Name</h5>
                                         <p class="card-text">$@item.Price</p>
                                     </div>
-                                    <form method="post">
+                                    <form>
                                         <div class="card-footer bg-transparent">
                                             <button asp-route-restaurantId="@item.localrestaurantsID"
                                         asp-route-userId="@Model.Shopper.shoppersID" asp-route-functionType="addToCart"
@@ -71,7 +71,9 @@
         </div>
         <div class="col">
             <div class="row">
-                <button class="btn btn-danger btn-lg col-12">Checkout</button>
+                <form method="post">
+                    <button asp-route-userType="Shoppers" asp-route-userId="@Model.Shopper.shoppersID" asp-route-functionType="checkout" class="btn btn-danger btn-lg col-12">Checkout</button>
+                </form>
             </div>
         </div>
     </div>

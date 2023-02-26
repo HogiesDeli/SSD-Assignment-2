@@ -12,8 +12,14 @@ public class ShoppingCartModel : PageModel
         _logger = logger;
     }
 
-    public void OnGet()
+    public IActionResult OnGet(int? userId, string? userType)
     {
+        if (userId == null || userType != "Shoppers")
+        {
+            return RedirectToPage("./Index");
+        }
+
+        return Page();
     }
 }
 
