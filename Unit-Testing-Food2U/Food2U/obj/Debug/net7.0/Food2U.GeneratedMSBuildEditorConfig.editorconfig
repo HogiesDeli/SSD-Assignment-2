@@ -1,0 +1,61 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Food2U
+build_property.RootNamespace = Food2U
+build_property.ProjectDir = C:\Users\Juant\Downloads\SSD-Assignment-2\Unit-Testing-Food2U\Food2U\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Juant\Downloads\SSD-Assignment-2\Unit-Testing-Food2U\Food2U
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/Juant/Downloads/SSD-Assignment-2/Unit-Testing-Food2U/Food2U/Pages/ChooseItems.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQ2hvb3NlSXRlbXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Juant/Downloads/SSD-Assignment-2/Unit-Testing-Food2U/Food2U/Pages/DeliveryDriver.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRGVsaXZlcnlEcml2ZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Juant/Downloads/SSD-Assignment-2/Unit-Testing-Food2U/Food2U/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Juant/Downloads/SSD-Assignment-2/Unit-Testing-Food2U/Food2U/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Juant/Downloads/SSD-Assignment-2/Unit-Testing-Food2U/Food2U/Pages/LocalRestaurant.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTG9jYWxSZXN0YXVyYW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Juant/Downloads/SSD-Assignment-2/Unit-Testing-Food2U/Food2U/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Juant/Downloads/SSD-Assignment-2/Unit-Testing-Food2U/Food2U/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Juant/Downloads/SSD-Assignment-2/Unit-Testing-Food2U/Food2U/Pages/ShoppingCart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hvcHBpbmdDYXJ0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Juant/Downloads/SSD-Assignment-2/Unit-Testing-Food2U/Food2U/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Juant/Downloads/SSD-Assignment-2/Unit-Testing-Food2U/Food2U/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Juant/Downloads/SSD-Assignment-2/Unit-Testing-Food2U/Food2U/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-49bdlifvxu
